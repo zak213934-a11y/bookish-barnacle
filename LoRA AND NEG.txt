@@ -1,0 +1,7 @@
+<lora:lazypos:1>,<lora:SmoothNoob_Quality:1>,<lora:PowerPuffMixLora:0.5>,<lora:ponyv6_noobV1_2_adamW:0.5>,<lora:Dramatic Lighting Slider:2.5>,<lora:frostbitev2_Illu_dwnsty:0.4>
+
+
+
+NEGATIVE PROMPT:
+
+lowres, worst quality, low quality, bad anatomy, bad hands, extra fingers, extra digits, missing fingers, malformed hands, poorly drawn hands, poorly drawn face, multiple views, duplicate body parts, cropped, out of frame, text, watermark, signature, username, logo, caption, jpeg artifacts, compression artifacts, scanlines, unfinished, sketch, draft, early concept, chromatic aberration, color banding, artistic error, rendering error, <lora:lazyneg:1>,
