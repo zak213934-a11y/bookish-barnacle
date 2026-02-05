@@ -1,0 +1,47 @@
+Build Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+
+      # If you have a requirements.txt, uncomment:
+      # - name: Install app deps
+      #   run: |
+      #     pip install -r requirements.txt
+
+      # Use your spec if it’s valid (recommended)
+      - name: Build with spec
+        run: |
+          pyinstaller --noconfirm --clean Genv3_win.spec
+
+      # Fallback if spec ever breaks: build directly from script
+      # - name: Build without spec (fallback)
+      #   run: |
+      #     pyinstaller --noconfirm --clean --windowed --onefile --name Genv3 `
+      #       --add-data "data;data" `
+      #       anime_prompt_generator_gui_pro.py
+
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Genv3-Windows
+          path: dist/*.exe
