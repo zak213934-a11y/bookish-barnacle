@@ -33,12 +33,12 @@ jobs:
         run: |
           pyinstaller --noconfirm --clean Genv3_win.spec
 
-      # Fallback if spec ever breaks: build directly from script
-      # - name: Build without spec (fallback)
-      #   run: |
-      #     pyinstaller --noconfirm --clean --windowed --onefile --name Genv3 `
-      #       --add-data "data;data" `
-      #       anime_prompt_generator_gui_pro.py
+       Fallback if spec ever breaks: build directly from script
+       - name: Build without spec (fallback)
+         run: |
+           pyinstaller --noconfirm --clean --windowed --onefile --name Genv3 `
+             --add-data "data;data" `
+             anime_prompt_generator_gui_pro.py
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
