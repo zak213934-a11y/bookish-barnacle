@@ -16,7 +16,6 @@ Implements:
 - Keyboard shortcuts (Ctrl+Enter generate, Ctrl+Shift+C copy all, Ctrl+C copy current, Ctrl+S save)
 - Status bar (data loaded counts, last action)
 """
-anime_prompt_generator_gui_pro.py
 
 import json
 import os
@@ -25,9 +24,24 @@ import time
 import tkinter as tk
 from typing import List, cast
 from tkinter import ttk, filedialog, messagebox
-
 import anime_prompt_generator_plus as apg
 
+from pathlib import Path
+def app_base_dir() -> Path:
+    # PyInstaller: files are extracted to a temp dir referenced by sys._MEIPASS
+    meipass = getattr(sys, "_MEIPASS", None)
+    if meipass:
+        return Path(meipass)
+
+    # Normal run: __file__ exists when executed from a real file
+    if "__file__" in globals():
+        return Path(__file__).resolve().parent
+
+    # Fallback: current working directory
+    return Path.cwd()
+
+BASE_DIR = app_base_dir()
+DATA_DIR = BASE_DIR / "data"
 
 # ---------- optional modern theming ----------
 def _try_apply_modern_theme(root):
