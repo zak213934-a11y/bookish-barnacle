@@ -16,6 +16,7 @@ Implements:
 - Keyboard shortcuts (Ctrl+Enter generate, Ctrl+Shift+C copy all, Ctrl+C copy current, Ctrl+S save)
 - Status bar (data loaded counts, last action)
 """
+anime_prompt_generator_gui_pro.py
 
 import json
 import os
